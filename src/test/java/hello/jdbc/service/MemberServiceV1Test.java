@@ -28,6 +28,7 @@ class MemberServiceV1Test {
     private MemberServiceV1 memberService;
 
     @BeforeEach
+    @DisplayName("각각의 test 호출 전 실행")
     void before() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource(URL, USERNAME, PASSWORD);
         memberRepository = new MemberRepositoryV1(dataSource);
@@ -35,6 +36,7 @@ class MemberServiceV1Test {
     }
 
     @AfterEach
+    @DisplayName("각각의 test 호출 후 실행")
     void after() throws SQLException {
         memberRepository.delete(MEMBER_A);
         memberRepository.delete(MEMBER_B);
