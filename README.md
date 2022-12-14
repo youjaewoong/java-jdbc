@@ -22,6 +22,9 @@ MemberRepositoryV3
 * 트랜잭션 매니저
  * DataSourceUtils.getConnection()
 
+MemberRepositoryV5
+* JdbcTemplate 사용
+
 ### test class 역할
 MemberRepositoryV0Test
 * JDBC DriverManager 추가, 조회, 수정, 삭제 테스트
@@ -77,3 +80,15 @@ CheckedTest
 
 UnCheckedTest
 * RuntimeException을 상속받은 예외는 언체크 예외가 된다.
+
+CheckedAppTest
+* 체크예외를 테스트
+
+UnCheckedAppTest
+* 언체크예외를 테스트
+
+ExTranslatorV1Test
+* 예외를 변환하여 테스트
+
+SpringExceptionTranslatorTest
+* 스프링에서 제공하는 예외 변환기를 통한 테스트

@@ -4,6 +4,7 @@ import com.zaxxer.hikari.util.DriverDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.BadSqlGrammarException;
@@ -46,6 +47,7 @@ public class SpringExceptionTranslatorTest {
     }
 
     @Test
+    @DisplayName("예외 변환기를 통한 테스트")
     void exceptionTranslator() {
         String sql = "select bad grammar";
 
@@ -57,6 +59,7 @@ public class SpringExceptionTranslatorTest {
             assertThat(e.getErrorCode()).isEqualTo(42122);
 
             //org.springframework.jdbc.support.sql-error-codes.xml
+            // 예외 변환
             SQLErrorCodeSQLExceptionTranslator exTranslator = new SQLErrorCodeSQLExceptionTranslator(dataSource);
             DataAccessException resultEx = exTranslator.translate("select", sql, e);
             log.info("resultEx", resultEx);
