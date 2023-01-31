@@ -1,4 +1,4 @@
-# jdbc
+# java-jdbc
 jdbc 관련 학습
 
 ### class 역할
